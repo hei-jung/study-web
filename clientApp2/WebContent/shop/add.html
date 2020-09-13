@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<h3>새 상품 등록</h3>
+<div id="form">
+<form enctype="multipart/form-data">
+<table border="1">
+<tr>
+<th>상품명</th>
+<td><input v-model="p.name" placeholder="상품명을 입력하세요"></td>
+</tr>
+<tr>
+<th>판매자</th>
+<td><input v-model="p.seller" readonly></td>
+</tr>
+<tr>
+<th>상품 가격</th>
+<td><input v-model="p.price" placeholder="판매가를 입력하세요"></td>
+</tr>
+<tr>
+<th>수량</th>
+<td><input v-model="p.amount" placeholder="재고량을 입력하세요"></td>
+</tr>
+<tr>
+<th>이미지 첨부</th>
+<td><input v-model="f" type="file"></td>
+</tr>
+<tr>
+<th>설명</th>
+<td><textarea v-model="p.info" placeholder="상품에 대하여 간단한 소개를 작성해주세요"></textarea></td>
+</tr>
+</table>
+</form>
+<button v-on:click="save">저장</button>
+</div>
+<script type="text/javascript" src="./add.js"></script>
+</body>
+</html>

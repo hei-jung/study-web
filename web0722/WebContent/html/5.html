@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+p {
+	/* 모든 p태그에 대해 적용 */
+	font-size: 30pt;
+	color: red;
+	/* 	font-face: arial; */
+	font-family: 궁서;
+	background-color: orange;
+}
+/* .클래스명 */
+.a {
+	font-size: 30pt;
+	font-family: arial;
+	background-color: green;
+}
+/* div 중에서도 클래스 안에 있는 */
+div.a {
+	color: white;
+}
+/* #id */
+#myp {
+	color: white;
+	background-color: black;
+	width: 100px;
+	height: 50px;
+	border: 4px dashed pink;
+	/* 	직선은 solid, 점선은 dotted, dashed */
+	position: absolute;
+	/* absolute:절대위치(고정), relative:상대위치(바로 윗줄 기준) */
+	top: 230px;
+	left: 80px;
+}
+</style>
+</head>
+<body>
+	<p>가나다</p>
+	<p
+		style="font-size: 30pt; color: blue; background-color: yellow; position: relative; top: 34px; left: 123px">bbb</p>
+	<p class="a">ccc</p>
+	<p id="myp">ddd</p>
+	<p class="a">ddd</p>
+	<p>fff</p>
+	<p class="a">gggg</p>
+	<div class="a">div a</div>
+	<div class="b">div b</div>
+	<div class="a">div c</div>
+	<div class="b">div d</div>
+</body>
+</html>

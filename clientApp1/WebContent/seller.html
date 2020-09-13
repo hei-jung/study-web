@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var type = sessionStorage.getItem("types");
+	var id = sessionStorage.getItem("id");
+	$("#my").html(type+" / "+id);
+});
+</script>
+</head>
+<body>
+<h3>MY PRODUCTS</h3>
+<div id="my"></div>
+</body>
+</html>

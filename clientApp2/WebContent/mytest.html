@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app-1">
+<p>제목: {{ title }}</p>
+<input v-model="title" placeholder="제목을 입력하세요">
+<br>
+<span>내용:</span>
+<p style="white-space: pre-line">{{ content }}</p>
+<br>
+<textarea v-model="content" placeholder="내용을 입력하세요"></textarea>
+<br>
+<input type="checkbox" id="cook" value="Cook" v-model="checkedTags">
+<label for="cook">Cook</label>
+<input type="checkbox" id="music" value="Music" v-model="checkedTags">
+<label for="music">Music</label>
+<input type="checkbox" id="sports" value="Sports" v-model="checkedTags">
+<label for="sports">Sports</label>
+<br>
+<span>태그: {{checkedTags}}</span>
+<br>
+<input type="radio" id="public" value="Public" v-model="picked">
+<label for="public">Public</label>
+<input type="radio" id="private" value="Private" v-model="picked">
+<label for="private">Private</label>
+<br>
+<span>공개: {{picked}}</span>
+<br>
+<select v-model="selected">
+<option disabled value="">--Select a category--</option>
+<option>welcome</option>
+<option>any</option>
+<option>hobby</option>
+</select>
+<br>
+<span>카테고리: {{ selected }}</span>
+</div>
+<script>
+var app4 = new Vue({
+	  el: '#app-1',
+	  data: {
+		  title : "",
+		  content: "",
+		  checkedTags: [],
+		  picked: ""
+	  }
+})
+</script>
+</body>
+</html>

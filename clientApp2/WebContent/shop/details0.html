@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<h3>구매페이지</h3>
+<div id="a">
+<table border="1">
+<tr><th>상품번호</th><td>{{p.num}}</td></tr>
+<tr><th>상품명</th><td>{{p.name}}</td></tr>
+<tr><th>상품가격</th><td>{{p.price}}</td></tr>
+<tr><th>주문수량</th><td><input v-model="ordernum"></td></tr>
+<tr><th>이미지</th><td><img v-bind:src="p.img" width="300" height="200"></td></tr>
+<tr><th>상세설명</th><td>{{p.info}}</td></tr>
+<tr><th>판매자</th><td>{{p.seller.id}}</td></tr>
+</table>
+</div>
+<script type="text/javascript" src="./details.js"></script>
+</body>
+</html>

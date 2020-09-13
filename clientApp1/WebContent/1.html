@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	var a = {
+		"id" : "aaa",
+		"pwd" : "111"
+	};//객체
+	var b = [ {
+		"id" : "aaa",
+		"pwd" : "111"
+	}, {
+		"id" : "bbb",
+		"pwd" : "222"
+	}, {
+		"id" : "ccc",
+		"pwd" : "333"
+	} ];//배열
+
+	document.write(a.id + "/" + a.pwd + "<br/>");
+	for (i = 0; i < b.length; i++) {
+		document.write(b[i].id + "/" + b[i].pwd + "<br/>");
+	}
+</script>
+</body>
+</html>

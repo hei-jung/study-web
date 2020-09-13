@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>edit article</title>
+</head>
+<body>
+<h3>edit form</h3>
+<form action="/article/edit" method="post">
+<table border="1">
+<tr>
+<td>no.</td><td><input type="text" name="num" th:value="${a.num}" readonly></td>
+</tr>
+<tr>
+<td>title:</td><td><input type="text" name="title" th:value="${a.title}"></td>
+</tr>
+<tr>
+<td>writer:</td><td><input type="text" name="writer" th:value="${a.writer.id}" readonly></td>
+</tr>
+<tr>
+<td>date:</td><td><input type="text" th:value="${a.w_date}" readonly></td>
+</tr>
+<tr>
+<td colspan=2><textarea rows=7 cols=28 name="content" th:text="${a.content}" style="resize: none;"></textarea></td>
+</tr>
+</table>
+<input type="submit" value="save">
+</form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>login result</title>
+</head>
+<body>
+<h3><input type="text" name="id" th:value="${u.id}" readonly>'s menu</h3>
+<a href="/user/${u.id}">info</a>
+<br>
+<a href="/user/logout">logout</a>
+<br>
+<a href="/user/out">delete account</a>
+<br>
+<a href="/article/list">article board</a>
+<br>
+</body>
+</html>

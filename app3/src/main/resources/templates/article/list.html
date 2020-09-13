@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>article list</title>
+</head>
+<body>
+<h3>article list</h3>
+<table border="1">
+<tr><th>num</th><th>writer</th><th>title</th><th>edited date</th><th>content</th></tr>
+<tr th:each="a : ${list}">
+<td th:text="${a.num}"></td>
+<td th:text="${a.writer.id}"></td>
+<td th:text="${a.title}"></td>
+<td th:text="${a.w_date}"></td>
+<td th:text="${a.content}"></td>
+<td>
+<a th:href="@{/article/edit(num=${a.num})}">detail</a>
+<a th:href="@{/article/delete(num=${a.num})}">delete</a>
+</td>
+</tr>
+</table>
+</body>
+</html>

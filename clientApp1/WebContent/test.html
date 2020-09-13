@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("button").click(function(){
+			var id = $("#id").val();
+			$.ajax({
+				url : "http://localhost:8888/members/"+id,
+				method : "get",
+				dataType : "text",
+				success : function(data) {
+	// 				alert(data);
+	// 				$("#res").text(data);
+					var obj = $.parseJSON(data);
+					var action = obj.action;
+					var result = obj.result;
+					var res_data = obj.data;
+					var html = "action:"+action+"<br/>";
+					html += "result:"+result+"<br/>";
+					html += "member info<br/>";
+					if(result){
+						html += "<table border='1'><tr><th>id</th><th>pwd</th><th>name</th><th>email</th><th>type</th></tr>";
+						html += "<tr><td>"+res_data.id+"</td><td>"+res_data.pwd+
+						"</td><td>"+res_data.name+"</td><td>"+res_data.email+"</td><td>"+res_data.types+"</td></tr>";
+					}
+					$("#res").html(html);
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<div id="res"></div>
+search id:<input type="text" id="id"><button>search!</button>
+</body>
+</html>

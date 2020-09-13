@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn1").click(function(){
+		var id = $("#txt1").val();
+		var pwd = $("#txt2").val();
+		var name = $("#txt3").val();
+		var html = "id:"+id+"\n";
+		html += "pwd:"+pwd+"\n";
+		html += "name:"+name+"\n";
+		alert(html);
+	});
+	
+	$("#btn2").click(function(){
+		var html = $("#div1").html();
+		alert(html);
+	});
+	
+	$("#btn3").click(function(){
+		var html = $("#div2").text();
+		alert(html);
+	});
+});
+</script>
+</head>
+<body>
+<form><!-- action="/article/list" -->
+id:<input type="text" id="txt1"><br/>
+pwd:<input type="text" id="txt2"><br/>
+name:<input type="text" id="txt3"><br/>
+<input type="button" value="save" id="btn1">
+</form>
+<div id="div1"><h3>aaa</h3><button id="btn2">click1</button></div>
+<div id="div2"><h3>bbb</h3><button id="btn3">click2</button></div>
+</body>
+</html>

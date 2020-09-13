@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var arr = [ 'A.png', 'A2.png', 'B.png', 'C.png', 'D.png' ];
+	idx = 0;
+	function prev() {
+		if (idx <= 0) {
+			alert("이전 사진 없음");
+			return;
+		}
+		idx--;
+		document.xxx.src = '../img/' + arr[idx % 5];
+	}
+	function next() {
+		idx++;
+		document.xxx.src = '../img/' + arr[idx % 5];
+	}
+	// 	window.onload = function() {
+	//		// 익명함수
+	//	}
+</script>
+</head>
+<body>
+	<img src="../img/A.png" name="xxx">
+	<br>
+	<input type="button" value="prev" onclick="prev()">
+	<input type="button" value="next" onclick="next()">
+</body>
+</html>

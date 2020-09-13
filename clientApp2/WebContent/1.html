@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<table border="1" id="a">
+<tr v-for="obj in list">
+<td>{{obj.id}}</td><td>{{obj.pwd}}</td><td>{{obj.name}}</td>
+</tr>
+</table>
+<script type="text/javascript">
+new Vue({
+	el:"#a",
+	data:{
+		list:''
+	},
+	created: function() {
+		const self = this
+		axios.get('list.jsp')
+		  .then(function(response) {
+			self.list = response.data;
+		})
+	}
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("p").hide();
+  });
+  
+  $("#btn2").click(function(){
+    $("p").show();
+  });
+  
+  $("#btn3").click(function(){
+    $(".c").hide();
+  });
+  
+  $("#btn4").click(function(){
+	$("p:first").hide();
+  });
+});
+</script>
+</head>
+<body>
+<button id="btn1">hide</button>
+<button id="btn2">show</button>
+<button id="btn3">hide C</button>
+<button id="btn4">hide first p</button>
+<p>A</p>
+<p>B</p>
+<p class="c">C</p>
+<p>D</p>
+<form action="/article/list">
+id:<input type="text" id="txt1"><br/>
+pwd:<input type="text" id="txt2"><br/>
+name:<input type="text" id="txt3"><br/>
+<input type="button" value="save" id="btn1">
+</form>
+</body>
+</html>

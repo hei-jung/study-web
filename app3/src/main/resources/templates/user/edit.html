@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>edit user</title>
+<script type="text/javascript">
+function del(){
+	f.action="/user/delete";
+	f.submit();
+}
+</script>
+</head>
+<body>
+<h3>edit form</h3>
+<form action="/user/edit" method="post" name="f">
+<table>
+<tr>
+<td>id:</td><td><input type="text" name="id" th:value="${u.id}"></td>
+</tr>
+<tr>
+<td>pwd:</td><td><input type="text" name="pwd" th:value="${u.pwd}"></td>
+</tr>
+<tr>
+<td>name:</td><td><input type="text" name="name" th:value="${u.name}"></td>
+</tr>
+<tr>
+<td>email:</td><td><input type="text" name="email" th:value="${u.email}"></td>
+</tr>
+</table>
+<input type="submit" value="edit">
+<input type="button" value="delete" onclick="del()">
+</form>
+</body>
+</html>

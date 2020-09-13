@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#btn1").click(function(){
+		var id = $("#id").val();
+		var pwd = $("#pwd").val();
+		$.ajax({
+			url : "http://localhost:8888/members/",
+			method : "get",
+			data : {"id" : id, "pwd" : pwd},
+			dataType : "text",
+			success : function(data){
+				var obj = $.parseJSON(data);
+				var result = obj.result;
+// 				var res_data = obj.data;
+				var html = "";
+				if(!result){
+					html += "<h4>login:login error</h4>";
+					html += "<a href='index.html'>return to sign in page</a>";
+					$("#res").html(html);
+					return;
+				}else{
+					if(obj.typei==0){
+						page = "consumer.html";
+					}else{
+						page = "seller.html";
+					}
+					sessionStorage.setItem("id", id);
+					sessionStorage.setItem("typei", obj.typei);
+					sessionStorage.setItem("types", obj.types);
+					location.href = page;
+				}
+			}
+		});
+	});
+});
+</script>
+</head>
+<body>
+<div id="res">
+<h3>!!WELCOME BACK!!</h3>
+<h4>sign in</h4>
+<a href="joinForm.html">sign up</a><br/>
+<form action="http://localhost:8888/members" method="get">
+<table>
+<tr><td>ID:</td><td><input type="text" id="id"></td></tr>
+<tr><td>PWD:</td><td><input type="text" id="pwd"></td>
+<td><input type="button" value="login" id="btn1"></td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

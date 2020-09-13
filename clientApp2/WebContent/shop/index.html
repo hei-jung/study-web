@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<table id="top" style="width:500px" border="1">
+<tr><td colspan="2"><h2>encore-shop</h2></td></tr>
+<tr><td id="left" style="width:150px;height:400px">
+<div v-if="logstat">
+<h3>login</h3>
+<input v-model="id" placeholder="id를 입력하시오 "><br/>
+<input v-model="pwd" placeholder="pwd를 입력하시오 "><br/>
+<button v-on:click="login">로그인</button>
+<a href="join.html">회원가입</a>
+</div>
+<div v-else>
+{{logtypes}}메뉴
+<button v-on:click="logout">로그아웃</button><br>
+<a href="">내 정보 수정</a><br>
+<a href="">검색</a><br>
+<div v-if="logtypei==='0'">
+<a>장바구니</a><br>
+<a>주문내역</a><br>
+</div>
+<div v-else-if="logtypei==='1'">
+<a href="add.html">새 상품 등록</a>
+</div>
+</div>
+</td>
+<td id="right" style="width:350px;height:400px">
+<div v-if="liststat">
+<h3>{{title}}</h3>
+<table>
+<tr><th>상품번호</th><th>상품명</th><th>가격</th></tr>
+<tr v-for="p in plist">
+<td>{{p.num}}</td>
+<td>{{p.name}}</td>
+<td>{{p.price}}</td>
+<td><button v-on:click="go(p.num)">상세페이지</button></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+<script type="text/javascript" src="./indexvue.js"></script>
+</body>
+</html>

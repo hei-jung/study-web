@@ -1,0 +1,124 @@
+package com.example.app2.model.product;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+
+import com.example.app2.model.join.Shop_Member;
+import com.example.app2.model.order.MyOrder;
+
+@Entity
+public class Product {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_sequence")
+	@SequenceGenerator(name = "product_sequence", sequenceName = "seq_product")
+	private Integer num;
+
+	private String name;
+	private Integer price;
+	private Integer amount;
+	private String info;
+	private String img;
+
+	@ManyToOne
+	@JoinColumn(name = "seller", nullable = false)
+	private Shop_Member seller;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pnum", cascade = CascadeType.REMOVE)
+	private List<MyOrder> orders;
+
+	public Product() {
+	}
+
+	public Product(Integer num, String name, Integer price, Integer amount, String info, String img,
+			Shop_Member seller) {
+		this.num = num;
+		this.name = name;
+		this.price = price;
+		this.amount = amount;
+		this.info = info;
+		this.img = img;
+		this.seller = seller;
+	}
+
+	public Integer getNum() {
+		return num;
+	}
+
+	public void setNum(Integer num) {
+		this.num = num;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getPrice() {
+		return price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+	public Integer getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	public void setInfo(String info) {
+		this.info = info;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public Shop_Member getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Shop_Member seller) {
+		this.seller = seller;
+	}
+
+	public List<MyOrder> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<MyOrder> orders) {
+		this.orders = orders;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [num=" + num + ", name=" + name + ", price=" + price + ", amount=" + amount + ", info=" + info
+				+ ", img=" + img + ", seller=" + seller + "]";
+	}
+
+}

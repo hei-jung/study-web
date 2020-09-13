@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("button").click(function(){
+		$.get("/article/json", function(data, status){
+			if(status==200){
+				alert("data: "+data);
+			}else{
+				alert("Status: "+status)
+			}
+		});
+	});
+});
+</script>
+</head>
+<body>
+<h3>article list</h3>
+<button>show list</button>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<h3>join</h3>
+<div id="form">
+<input v-model="id" placeholder="id를 입력하세요"><br>
+<input v-model="pwd" placeholder="pwd를 입력하세요"><br>
+<input v-model="name" placeholder="name을 입력하세요"><br>
+<button v-on:click="send">가입</button>
+</div>
+<script type="text/javascript">
+new Vue({
+	el:"#form",
+	data:{
+		id:'',
+		pwd:'',
+		name:''
+	},
+	methods:{
+		send:function(){
+			const form = new URLSearchParams();
+			form.append('id', this.id)
+			form.append('pwd', this.pwd)
+			form.append('name', this.name)
+			axios.post('input.jsp', form)
+			.then(res=>{
+				
+			})
+		}
+	}
+})
+</script>
+</body>
+</html>

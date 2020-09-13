@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<h3>join form</h3>
+<div id="form">
+<input v-model="id" placeholder="id를 입력하시오 ">
+<button v-on:click="idcheck">중복체크</button>{{idcheck_res}}
+<br/>
+<input v-model="pwd" placeholder="pwd를 입력하시오 ">
+<br/>
+<input v-model="name" placeholder="name를 입력하시오 ">
+<br/>
+<input v-model="email" placeholder="email를 입력하시오 ">
+<br/>
+<input type="radio" id="one" value="0" v-model="typei">
+<label for="one">CONSUMER</label>
+<br>
+<input type="radio" id="two" value="1" v-model="typei">
+<label for="two">SELLER</label>
+<br>
+<button v-on:click="send">가입</button>
+</div>
+<script type="text/javascript">
+new Vue({
+	el:"#form", 
+	data:{
+		id:'',
+		pwd:'',
+		name:'',
+		email:'',
+		typei: '0',
+		idcheck_res:''
+	},
+	methods:{
+		send:function(){
+			const form = new URLSearchParams(); 
+			form.append('id', this.id) 
+			form.append('pwd',this.pwd)
+			form.append('name',this.name)
+			form.append('email',this.email)
+			form.append('typei',this.typei)
+			axios.post('http://localhost:8888/members',form)
+			.then(res=>{
+				alert(res.status);
+				location.href="index.html";
+			});
+		},
+		idcheck:function(){
+			axios.get('http://localhost:8888/members/'+this.id)
+			.then(res=>{
+				alert(res.status);
+				alert(res.data.action);
+				alert(res.data.result);
+				if(!res.data.result){
+					this.idcheck_res = '사용가능한 아이디';
+				}else{
+					this.idcheck_res = '중복된 아이디';
+				}
+			});
+		}
+	}
+});
+</script>
+</body>
+</html>
